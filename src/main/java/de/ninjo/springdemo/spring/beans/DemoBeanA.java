@@ -16,8 +16,6 @@ public class DemoBeanA extends BaseBean implements ApplicationContextAware {
 	public DemoBeanA(DemoBeanB beanB) {
 		this.beanB = beanB;
 		LOG.warn("Instantiated " + getClass().getName());
-
-
 	}
 
 	@Override
