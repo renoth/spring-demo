@@ -1,12 +1,12 @@
 package de.ninjo.springdemo.spring;
 
-import de.ninjo.springdemo.spring.beans.DemoBeanA;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan
+@PropertySource("classpath:application.properties")
 public class DemoBaseApplicationContext {
 
 }
