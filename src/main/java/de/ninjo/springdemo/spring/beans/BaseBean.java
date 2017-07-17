@@ -1,5 +1,6 @@
 package de.ninjo.springdemo.spring.beans;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
@@ -7,7 +8,7 @@ import javax.annotation.PreDestroy;
 
 public class BaseBean {
 
-	org.slf4j.Logger LOG = LoggerFactory.getLogger(getClass());
+	Logger LOG = LoggerFactory.getLogger(getClass());
 
 	@PostConstruct
 	public void onInitialize() {
@@ -17,5 +18,10 @@ public class BaseBean {
 	@PreDestroy
 	public void onBeforeDestroy() {
 		LOG.warn("Destroying " + getClass().getName());
+	}
+
+	@Override
+	public String toString() {
+		return "Bean: " + getClass().getName();
 	}
 }

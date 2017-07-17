@@ -1,7 +1,7 @@
 package de.ninjo.springdemo;
 
-import de.ninjo.springdemo.spring.beans.DemoBeanA;
 import de.ninjo.springdemo.spring.beans.DemoBeanB;
+import de.ninjo.springdemo.spring.beans.DemoBeanC;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -16,6 +16,8 @@ public class Main {
 		LOG.error("Finished loading application context");
 
 		context.getBean(DemoBeanB.class).printInjectedValue();
+		context.getBean(DemoBeanC.class).listBaseBeans();
+		context.getBean(DemoBeanC.class).showSelectedBaseBean();
 
 		context.destroy();
 	}
