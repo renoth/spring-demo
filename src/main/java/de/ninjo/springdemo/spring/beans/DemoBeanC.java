@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("beanC")
 public class DemoBeanC {
 
 	Logger LOG = LoggerFactory.getLogger(getClass());
@@ -19,7 +19,7 @@ public class DemoBeanC {
 	private BaseBean baseBean;
 
 	public void listBaseBeans() {
-		baseBeans.stream().forEach(baseBean -> LOG.warn(baseBean.toString()));
+		baseBeans.forEach(baseBean -> LOG.warn(baseBean.toString()));
 	}
 
 	public void showSelectedBaseBean() {
