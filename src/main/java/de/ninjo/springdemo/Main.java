@@ -4,8 +4,11 @@ import de.ninjo.springdemo.spring.beans.DemoBeanB;
 import de.ninjo.springdemo.spring.beans.DemoBeanC;
 import de.ninjo.springdemo.spring.beans.DemoBeanD;
 import de.ninjo.springdemo.spring.beans.DevelopmentBean;
+import de.ninjo.springdemo.spring.beans.ProductionBean;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Arrays;
 
 public class Main {
 	private static org.slf4j.Logger LOG = LoggerFactory.getLogger(Main.class);
@@ -26,8 +29,13 @@ public class Main {
 
 		context.getBean(DemoBeanD.class).explainMe();
 
-		// if (context.getEnvironment().getActiveProfiles())
-		context.getBean(DevelopmentBean.class).explainMe();
+		boolean isDevProfileActive = Arrays.asList(context.getEnvironment().getActiveProfiles()).contains("dev");
+
+		if (isDevProfileActive) {
+			context.getBean(DevelopmentBean.class).explainMe();
+		} else {
+			context.getBean(ProductionBean.class).explainMe();
+		}
 
 		context.destroy();
 	}
