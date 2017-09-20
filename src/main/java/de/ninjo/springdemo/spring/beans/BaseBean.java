@@ -8,7 +8,7 @@ import javax.annotation.PreDestroy;
 
 public class BaseBean {
 
-	Logger LOG = LoggerFactory.getLogger(getClass());
+	protected Logger LOG = LoggerFactory.getLogger(getClass());
 
 	@PostConstruct
 	public void onInitialize() {

@@ -21,18 +21,21 @@ public class Main {
 
 		ClassPathXmlApplicationContext xmlApplicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+		LOG.error("Finished loading XML application context");
+
 		xmlApplicationContext.destroy();
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("de.ninjo.springdemo.spring");
 
-		LOG.error("Finished loading application context");
+		LOG.error("Finished loading annotation application context");
 
 		context.getBean(DemoBeanB.class).printInjectedValue();
 		context.getBean(DemoBeanC.class).listBaseBeans();
-
 		context.getBean(DemoBeanC.class).showSelectedBaseBean();
-		context.getBean("beanC", DemoBeanC.class).showSelectedBaseBean();
-		((DemoBeanC) context.getBean("beanC")).showSelectedBaseBean();
+
+		LOG.warn(context.getBean(DemoBeanC.class).toString());
+		LOG.warn(context.getBean("beanC", DemoBeanC.class).toString());
+		LOG.warn(((DemoBeanC) context.getBean("beanC")).toString());
 
 		context.getBean(DemoBeanD.class).explainMe();
 
