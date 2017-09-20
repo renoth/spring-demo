@@ -6,8 +6,6 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ApplicationContextEvent;
-import org.springframework.context.event.ContextStartedEvent;
 
 public class DemoBeanE extends BaseBean implements ApplicationEventPublisherAware, ApplicationListener<DemoBeanE.BeanEStartedEvent> {
 

@@ -11,12 +11,11 @@ import org.springframework.stereotype.Service;
 @Primary
 public class DemoBeanA extends BaseBean implements ApplicationContextAware {
 
-	private final DemoBeanB beanB;
+	private DemoBeanB beanB;
+
 	private ApplicationContext applicationContext;
 
-	@Autowired
-	public DemoBeanA(DemoBeanB beanB) {
-		this.beanB = beanB;
+	public DemoBeanA() {
 		LOG.warn("Instantiated " + getClass().getName());
 	}
 
@@ -29,5 +28,10 @@ public class DemoBeanA extends BaseBean implements ApplicationContextAware {
 
 	public void setApplicationContext(final ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
+	}
+
+	@Autowired
+	public void setBeanB(final DemoBeanB beanB) {
+		this.beanB = beanB;
 	}
 }
