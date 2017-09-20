@@ -1,5 +1,6 @@
 package de.ninjo.springdemo;
 
+import de.ninjo.springdemo.spring.CommonConstants;
 import de.ninjo.springdemo.spring.beans.DemoBeanB;
 import de.ninjo.springdemo.spring.beans.DemoBeanC;
 import de.ninjo.springdemo.spring.beans.DemoBeanD;
@@ -39,7 +40,7 @@ public class Main {
 
 		context.getBean(DemoBeanD.class).explainMe();
 
-		boolean isDevProfileActive = Arrays.asList(context.getEnvironment().getActiveProfiles()).contains("dev");
+		boolean isDevProfileActive = Arrays.asList(context.getEnvironment().getActiveProfiles()).contains(CommonConstants.DEV_PROFILE_STRING);
 
 		if (isDevProfileActive) {
 			context.getBean(DevelopmentBean.class).explainMe();
