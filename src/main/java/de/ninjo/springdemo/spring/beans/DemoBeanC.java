@@ -19,6 +19,7 @@ public class DemoBeanC {
 	private BaseBean baseBean;
 
 	public void listBaseBeans() {
+		LOG.info("Listing BaseBeans");
 		baseBeans.forEach(baseBean -> LOG.warn(baseBean.toString()));
 	}
 
